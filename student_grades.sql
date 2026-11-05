@@ -37,9 +37,6 @@ VALUES ('Alice Lim', 'Alice@gamil.com','2002-07-09'),
        ('Fyn Kyle', 'Fnynn@gmail.com',NULL);
 
 
-SELECT * FROM students;
-
-
 --insert into values courses tables
 
 INSERT INTO courses (course_name,instructor, credits)
@@ -47,7 +44,6 @@ VALUES ('History', 'James',4),
        ('Statistics', 'Avi', 4),
        ('Algorithms', 'Kay', 3);
 
-SELECT * FROM courses;
 
 --insert into values grades table
 
@@ -58,43 +54,3 @@ VALUES (1, 1, 89),
        (2,1,80);
 
 
-SELECT * FROM grades;
-
---update 1 in students table
-
-UPDATE students
-SET email= 'sam@gmail.com'
-WHERE id= 2;
-
-
-SELECT full_name,email
-FROM students;
-
---updates 2 in students table
-
-UPDATE students
-SET birth_date= '2002-09-09'
-WHERE id= 3;
-
-SELECT full_name,birth_date
-FROM students;
-
---first delete foreign key from grades
-
-DELETE FROM grades
-WHERE student_id= 1;
-
--- Then delete the student from the students table
-
-DELETE FROM students
-WHERE id = 1;
-
-
-
-SELECT * FROM students;
-
-
-SELECT s.full_name, c.course_name, g.grade
-FROM grades g
-JOIN students s ON s.id= g.student_id
-JOIN courses c ON c.id= g.course_id;
